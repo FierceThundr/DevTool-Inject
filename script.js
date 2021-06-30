@@ -9,3 +9,7 @@ function transform() {
 	
 	document.getElementById("new_ui").style.top = "0";
 }
+
+console.log('Injection success')
+
+setTimeout(transform,5000)
