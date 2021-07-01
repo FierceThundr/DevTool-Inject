@@ -30,18 +30,20 @@ var css = document.getElementsByTagName('head')[0].appendChild(document.createEl
 css.href='https://fiercethundr.github.io/DevTool-Inject/style.css'
 css.rel='stylesheet'
 
+var style = document.getElementsByTagName('head')[0].appendChild(document.createElement('style'))
+style.innerHTML='.new_ui {color:hsl(120,100%,50%)} .simplebar-scrollbar::before {background-color:hsl(120,100%,50%)}'
+style.id='dynamic_color'
+
 document.getElementsByTagName('head')[0].appendChild(document.createElement('script')).src='https://unpkg.com/simplebar@5.2.1/dist/simplebar.min.js'
 
 document.getElementsByTagName('head')[0].appendChild(document.createElement('script')).src='https://use.fontawesome.com/b51eec3906.js'
 	
 window.scrollTo(0,0);
 
-var element = document.createElement("div")
-element.setAttribute("class","new_ui");
-element.setAttribute("id","new_ui");
-document.body.insertBefore(element,document.body.firstChild);
-	
-element.innerHTML = `
+var div = document.body.insertBefore(document.createElement("div"),document.body.firstChild);
+div.className='new_ui'
+div.id='new_ui'
+div.innerHTML = `
 <p class="block_ver"><i>Devtools Version 1.0.1</i></p>
     
 <div class="maindiv">
@@ -52,9 +54,9 @@ element.innerHTML = `
   </div>
   <div class="blockdata" style="text-align:left" data-simplebar>
     <div id="tooldata">
-      <h2 id="command_name">Hello!</h2>
+      <h2 id="command_name">WTTG2 Integration DevTools</h2>
       <p id="command_description">
-        &gt;Welcome to the WTTG2 Integration Devtools
+        Welcome to the WTTG2 Twitch Integration Devtools Interface, in this version of the interface you can see descriptions of what each tool does and what information it may need. 
       </p>
       <textarea id="command_additional" oninput="document.getElementById('getAdditional').value = this.value" class="command_additional" placeholder="Please choose a command"></textarea>
       <button onclick="document.getElementById('submitData').click()" class="command_submit">Submit Command</button>
@@ -73,12 +75,14 @@ element.innerHTML = `
     <table id="sessions">
     </table>
   </div>
-  <div class="databar" id="current_session">
+  <div class="databar monospace" id="current_session">
     [Current Session] No Session Selected
   </div>
-</div>`
+</div>
 
-//Interface Initial Load
+<div><div class="colorbox">Interface Color<b>:</b><input oninput="setcolor(0,this.value)" type="range" min="0" max="360" value="120" id="primary"></div></div>`
+
+//Interface Configuration
 
 var tools = [
   {"name":"Modify Tick Count","value":"updateTickCount","description":"Modify the delay in seconds between when the game checks for commands.","additional":"Amount of seconds between checks"},
@@ -143,6 +147,8 @@ var tools = [
   {"name":"Change WiFi Speed","value":"speedManipulator","description":"Modify the players wifi speed to be faster or slower than normal. The available options are faster and slower.","additional":"The wifi speed you want"},
   ]
 
+//Build Dynamic Interfaces
+
 tools.forEach(function (v,i) {
   var button = document.createElement("button")
   document.getElementById("toollist").appendChild(button)
@@ -170,6 +176,18 @@ sessions.reverse().forEach(function (v,i) {
   c.innerHTML = v.log
   d.innerHTML = `<button onclick="sessionupdate(${i})">Make Current Session</button>`
 })
+
+//Retrieve Saved Color of Interface
+
+if (localStorage.getItem('color0') == undefined) {localStorage.setItem('color0',120)}
+document.getElementById("dynamic_color").innerHTML = `.new_ui {color:hsl(${localStorage.getItem('color0')},100%,50%)} .simplebar-scrollbar::before {background-color:hsl(${localStorage.getItem('color0')},100%,50%)}`
+
+//Update Functions
+
+function setcolor(i,c) {
+  localStorage.setItem(`color${i}`,c)
+  document.getElementById("dynamic_color").innerHTML = `.new_ui {color:hsl(${localStorage.getItem('color0')},100%,50%)} .simplebar-scrollbar::before {background-color:hsl(${localStorage.getItem('color0')},100%,50%)}`
+}
 
 function sessionupdate(i) {
   document.getElementById("hashCode").value = sessions[i].hash
