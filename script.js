@@ -144,7 +144,7 @@ var tools = [
   {"name":"Activate D05_DR41N3R","value":"dosdrainer","description":"Infect the players current wifi network with D05_DR41N3R. When the player is on a wifi network with D05_DR41N3R, they will lose one DosCoin every second they stay on that network."},
   
     {"section":"&gt; Hacks"},
-  {"name":"Send Hack (Normal)","value":"hack","description":"Summon a normal hack on the players computer. If used during 1337 mode, the hack will be 1337 difficulty."},
+  {"name":"Send Hack (Normal)","value":"hack","description":"Summon a normal hack on the players computer. If used during 1337 mode, the hack may be 1337 difficulty."},
   {"name":"Send Hack (1337)","value":"hackpog","description":"Summon a 1337 hack on the players computer."},
   {"name":"Send Hack (Blackhat)","value":"blackhat","description":"Summon a blackhat hack on the players computer. A blackhat hack cannot be skipped and will only give 0.5 DosCoin upon completion."},
   {"name":"Whitehat","value":"whitehat","description":"Causes the player to get a reward as if they beat a hack. If the player does not have a backdoor hack, the command does nothing. Will never trigger an item to spawn."},
