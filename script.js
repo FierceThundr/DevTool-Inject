@@ -86,6 +86,7 @@ div.innerHTML = `
 
 var tools = [
   {"name":"Modify Tick Count","value":"updateTickCount","description":"Modify the delay in seconds between when the game checks for commands.","additional":"Amount of seconds between checks"},
+  
     {"section":"&gt; Apartment"},
   {"name":"Open Window","value":"openWindow","description":"Open the apartment window."},
   {"name":"Close Window","value":"closeWindow","description":"Close the apartment window."},
@@ -96,55 +97,64 @@ var tools = [
   {"name":"Despawn Adam","value":"deSpawnAdam","description":"Undo the action of the command \"Spawn Adam\" above."},
   {"name":"Spawn Dancing Noir","value":"spawnDancing","description":"Spawn a dancing Noir in the kitchen area. Can be undone by using \"Despawn Dancing Noir\" below."},
   {"name":"Despawn Dancing Noir","value":"despawnDancing","description":"Undo the action of the command \"Spawn Dancing Noir\" above."},
+  
     {"section":"&gt; Troll Sounds"},
   {"name":"Play Sound","value":"playTrollPoll","description":"Play a specified sound file. A list of sounds can be found below. If the value provided is not a valid sound, vacation is played.<br><br>[Available Sounds]: vacation, triangle, polishcow, nyancat, stickbug, jebaited, keyboardcat, running, stal, chungus, gnome, rickroll, diarrhea, blue, coffin, crab, thomas<br><br>(Only one sound can be played at a time)","additional":"Name of sound to play"},
   {"name":"Stop Sound","value":"killTrollPoll","description":"Stop the current troll sound playing."},
   {"name":"Play Lockpick","value":"trollLockPick","description":"Play the lockpicking noise made by the Hitman."},
+  
     {"section":"&gt; Teleport"},
   {"name":"Teleport Elevator","value":"doomersElevator","description":"Teleport the player inside the elevator."},
   {"name":"Teleport Lobby","value":"doomersOutside","description":"Teleport the player to the lobby."},
   {"name":"Teleport Apartment","value":"doomersHome","description":"Teleport the player inside the apartment."},
   {"name":"Teleport Hallway","value":"doomersHallway","description":"Teleport the player into the apartment hallway."},
   {"name":"Teleport Bathroom","value":"doomersApartment","description":"Teleport the player inside the apartment bathroom."},
+  
     {"section":"&gt; Enemies"},
-  {"name":"Increase Difficulty","value":"diffIncrease","description":"Increase the players difficulty value. Functionally maxes out at a value of 8. Accepts negative values, results untested.","additional":"Amount to increase difficulty"},
+  {"name":"Increase Difficulty","value":"diffIncrease","description":"Increase the players difficulty value. Functionally maxes out at a value of 8. Accepts negative values, untested.","additional":"Amount to increase difficulty"},
   {"name":"Spawn Noir","value":"noircult","description":"Spawn the Noir to stalk the player."},
   {"name":"Spawn Doll Maker","value":"dollMaker","description":"Immediately summon the Doll Maker at the apartment of the player."},
   {"name":"Always Breather (Enable)","value":"breatherOn","description":"Force the Breather to always spawn when the player enters the alley."},
   {"name":"Always Breather (Disable)","value":"breatherOff","description":"Undo the effect of the command \"Always Breather (Enable)\" above."},
-  {"name":"Disable Enemies (Enable)","value":"casual","description":"Disable all enemies. This includes the Breather, Police, Doll Maker, Noir, and Hitman. Additionally blocks random hacks from occuring."},
+  {"name":"Disable Enemies (Enable)","value":"casual","description":"Disable all enemies. This includes the Breather, Police, Doll Maker, Noir, and Hitman. Additionally may block hacks from occuring."},
   {"name":"Disable Enemies (Disable)","value":"noCasual","description":"Undo the effect of the command \"Disable Enemies (Enable)\" above."},
-  {"name":"Kill Player","value":"killp","description":"Force the player die via a chosen method. The available methods are police, lucas, or noir. If the value provided is not valid, [awaiting answer].","additional":"Method to kill player"},
+  {"name":"Kill Player","value":"killp","description":"Force the player die via a chosen method. The available methods are police, lucas, or noir. If the value provided is not valid, it will do nothing.","additional":"Method to kill player"},
+  
     {"section":"&gt; Discount"},
   {"name":"Discount ZeroDay Market","value":"zeroDiscount","description":"Discount the prices of the ZeroDay Market."},
   {"name":"Discount Shadow Market","value":"shadowDiscount","description":"Discount the prices of the Shadow Market."},
+  
     {"section":"&gt; DosCoin"},
-  {"name":"Modify DosCoins (Add)","value":"addCoins","description":"Give the player a specified amount of DosCoin and play a positive sound effect.","additional":"Amount of DosCoin to give"},
-  {"name":"Modify DosCoins (Remove)","value":"subCoins","description":"Remove a specified amount of DosCoin from the player and play a negative sound effect.","additional":"Amount of DosCoin to take"},
-  {"name":"Set Loan","value":"setloan","description":"Set a loan the player must repay before beating the game.","additional":"The amount the player must repay"},
-  {"name":"Change Remote VPN Level","value":"changeVPN","description":"","additional":""},
+  {"name":"Modify DosCoins (Add)","value":"addCoins","description":"Give the player a specified amount of DosCoin and play a positive sound effect. Maximum value that can be modified at a time is 1000, supports decimal values. If no value is provided, nothing happens.","additional":"Amount of DosCoin to give"},
+  {"name":"Modify DosCoins (Remove)","value":"subCoins","description":"Remove a specified amount of DosCoin from the player and play a negative sound effect. Maximum value that can be modified at a time is 1000, supports decimal values. If no value is provided, nothing happens.","additional":"Amount of DosCoin to take"},
+  {"name":"Set Loan","value":"setloan","description":"Set a loan the player must repay before beating the game. Does not support decimals or negative values.","additional":"The amount the player must repay"},
+  {"name":"Change Remote VPN Level","value":"changeVPN","description":"Change the level of all Remote VPNs the player currently owns. If an invalid option is provided, the command does nothing. Options are as follows... [1] Default - All VPNs behave as normal [2] Purple - All VPNs function at two times speed [3] Blue - All VPNs function at three times speed","additional":"The VPN level you wish to set"},
+  
     {"section":"&gt; Documents"},
-  {"name":"Spawn Key File","value":"keyDoc","description":"Spawn a file containing the specified key on the players desktop. If an invalid key is provided, no file will be made.","additional":"The number of the key you want to give"},
+  {"name":"Spawn Key File","value":"keyDoc","description":"Spawn a file containing the specified key on the players desktop. If an invalid key is provided, a random key will be made.","additional":"The number of the key you want to give"},
   {"name":"Spawn Custom File","value":"doc","description":"Create a custom file on the players desktop. Your file must be provided in the following format... \"name:content\"","additional":"The file you want to make"},
   {"name":"Spawn Tenant File","value":"giveTenant","description":"Spawn a file on the players desktop containing the information of a random tenant in the building including room number."},
+  
     {"section":"&gt; Viruses"},
   {"name":"Delete Notes","value":"clearNotes","description":"Delete the contents of the computers notepad."},
   {"name":"Shutdown Computer","value":"shutdownPC","description":"Shutdown the players computer."},
-  {"name":"Viruses (Add)","value":"virus","description":"Download a specified amount of viruses to the players computer.","additional":"The amount of viruses to download"},
+  {"name":"Viruses (Add)","value":"virus","description":"Download a specified amount of viruses to the players computer. The maximum amount that can be installed at a time is 10.","additional":"The amount of viruses to download"},
   {"name":"Viruses (Remove)","value":"vwipe","description":"Open VWipe and run a virus scan."},
   {"name":"Activate TH3SW4N","value":"swan","description":"Download TH3SW4N virus to the players computer. It requires the player to input a code before the swans timer reaches zero. If the player fails to do this, TH3SW4N will shutdown the computer, clear the players notepad, and steal DosCoin."},
   {"name":"Activate D05_DR41N3R","value":"dosdrainer","description":"Infect the players current wifi network with D05_DR41N3R. When the player is on a wifi network with D05_DR41N3R, they will lose one DosCoin every second they stay on that network."},
+  
     {"section":"&gt; Hacks"},
-  {"name":"Send Hack (Normal)","value":"hack","description":""},
-  {"name":"Send Hack (1337)","value":"hackpog","description":""},
-  {"name":"Send Hack (Blackhat)","value":"blackhat","description":""},
-  {"name":"Whitehat","value":"whitehat","description":""},
-  {"name":"Whitehat (Force Item)","value":"itemwhitehat","description":""},
-  {"name":"Drain Backdoors","value":"drainBackdoor","description":""},
+  {"name":"Send Hack (Normal)","value":"hack","description":"Summon a normal hack on the players computer. If used during 1337 mode, the hack will be 1337 difficulty."},
+  {"name":"Send Hack (1337)","value":"hackpog","description":"Summon a 1337 hack on the players computer."},
+  {"name":"Send Hack (Blackhat)","value":"blackhat","description":"Summon a blackhat hack on the players computer. A blackhat hack cannot be skipped and will only give 0.5 DosCoin upon completion."},
+  {"name":"Whitehat","value":"whitehat","description":"Causes the player to get a reward as if they beat a hack. If the player does not have a backdoor hack, the command does nothing. Will never trigger an item to spawn."},
+  {"name":"Whitehat (Force Item)","value":"itemwhitehat","description":"Causes the player to recieve an item as if it was recieved from the whitehat poll result. When triggered it will spawn items for the player in the following order. First Police Scanner, Wifi Dongle 2 second, and finally Wifi Dongle 3."},
+  {"name":"Drain Backdoors","value":"drainBackdoor","description":"Remove all backdoor the player currently has downloaded on their computer."},
+  
     {"section":"&gt; WiFi"},
   {"name":"Spawn Network Password","value":"wifiDoc","description":"Spawn a file on the players desktop containing the password of a random WiFi network."},
   {"name":"Disconnect from WiFi","value":"disconnectWifi","description":"Force a player to disconnect from their current WiFi network."},
-  {"name":"Change WiFi Speed","value":"speedManipulator","description":"Modify the players wifi speed to be faster or slower than normal. The available options are faster and slower.","additional":"The wifi speed you want"},
+  {"name":"Change WiFi Speed","value":"speedManipulator","description":"Modify the players wifi speed to be faster or slower than normal. The available options are faster and slower. If an invalid option is provided, the command does nothing. The effect expires after a duration of ten minutes.","additional":"The wifi speed you want"},
   ]
 
 //Build Dynamic Interfaces
