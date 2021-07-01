@@ -111,12 +111,12 @@ var tools = [
   {"name":"Teleport Bathroom","value":"doomersApartment","description":"Teleport the player inside the apartment bathroom."},
   
     {"section":"&gt; Enemies"},
-  {"name":"Increase Difficulty","value":"diffIncrease","description":"Increase the players difficulty value. Functionally maxes out at a value of 8. Accepts negative values, untested.","additional":"Amount to increase difficulty"},
+  {"name":"Increase Difficulty","value":"diffIncrease","description":"Increase the players difficulty value by a specified amount. Functionally maxes out at a value of 8.","additional":"Amount to increase difficulty"},
   {"name":"Spawn Noir","value":"noircult","description":"Spawn the Noir to stalk the player."},
   {"name":"Spawn Doll Maker","value":"dollMaker","description":"Immediately summon the Doll Maker at the apartment of the player."},
   {"name":"Always Breather (Enable)","value":"breatherOn","description":"Force the Breather to always spawn when the player enters the alley."},
   {"name":"Always Breather (Disable)","value":"breatherOff","description":"Undo the effect of the command \"Always Breather (Enable)\" above."},
-  {"name":"Disable Enemies (Enable)","value":"casual","description":"Disable all enemies. This includes the Breather, Police, Doll Maker, Noir, and Hitman. Additionally may block hacks from occuring."},
+  {"name":"Disable Enemies (Enable)","value":"casual","description":"Disable all enemies. This includes the Breather, Police, Doll Maker, Noir, and Hitman. Additionally blocks random and forced hacks from occuring."},
   {"name":"Disable Enemies (Disable)","value":"noCasual","description":"Undo the effect of the command \"Disable Enemies (Enable)\" above."},
   {"name":"Kill Player","value":"killp","description":"Force the player die via a chosen method. The available methods are police, lucas, or noir. If the value provided is not valid, it will do nothing.","additional":"Method to kill player"},
   
