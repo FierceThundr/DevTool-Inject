@@ -22,7 +22,7 @@ css.href='https://unpkg.com/simplebar@5.2.1/dist/simplebar.css'
 css.rel='stylesheet'
 
 var css = document.getElementsByTagName('head')[0].appendChild(document.createElement('link'))
-css.href='https://fiercethundr.github.io/DevTool-Inject/style.css'
+css.href='https://fiercethundr.github.io/DevTool-Inject/basic/style.css'
 css.rel='stylesheet'
 
 var style = document.getElementsByTagName('head')[0].appendChild(document.createElement('style'))
