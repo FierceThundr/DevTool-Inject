@@ -18,14 +18,19 @@
 //Determine if the code should be run and allow the user to choose the interface they want
 
 if (location.href != "https://naskogdps17.7m.pl/wttg/dev/") {
-  alert("This code injection can only be used at https://naskogdps17.7m.pl/wttg/dev/")
+  var response = window.confirm("This code injection can only be used at https://naskogdps17.7m.pl/wttg/dev/\nWould you like to go there?")
+  if (response == true) {
+    location.href = "https://naskogdps17.7m.pl/wttg/dev/"
+  } else {
+    alert("Code Injection Cancelled")
+  }
   throw new Error("This code injection can only be used at https://naskogdps17.7m.pl/wttg/dev/");
 }
 
-var response = prompt("Please enter the style you want!\nbasic\ncommandline","")
+var response = prompt("Please enter the style you want!\nbasic\ncommandline (WIP)","")
 switch(response) {
 	case "basic":document.getElementsByTagName('head')[0].appendChild(document.createElement('script')).src='https://fiercethundr.github.io/DevTool-Inject/basic/script.js';break;
 	case "commandline":document.getElementsByTagName('head')[0].appendChild(document.createElement('script')).src='https://fiercethundr.github.io/DevTool-Inject/commandline/script.js';break;
-	case null:alert("Injection Cancelled");break;
+	case null:alert("Code Injection Cancelled");break;
 	default:alert("Invalid Response");break;
 }
