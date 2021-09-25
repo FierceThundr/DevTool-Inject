@@ -7,5 +7,5 @@ When activated, the project will overlay a new UI over the old interface of the 
 To use the improved interface, simply add a bookmark that uses the following as the address. When you wish to use the new interface, simply click the bookmark.
 
 ```javascript
-javascript:(function (){document.getElementsByTagName('head')[0].appendChild(document.createElement('script')).src='https://fiercethundr.github.io/DevTool-Inject/script.js'}());
+javascript:(function (){document.getElementsByTagName('head')[0].appendChild(document.createElement('script')).src='https://fiercethundr.github.io/DevTool-Inject/inject.js'}());
 ```
